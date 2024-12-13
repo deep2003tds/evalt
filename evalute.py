@@ -338,7 +338,7 @@ def get_output_files(id: str, path: str) -> OutputFiles:
 
 
 def evaluate_output_quality(id: str, path: str, evals: list[Eval]):
-    readme_file, image_files = get_output_files(id, os.path.join("eval", ""))
+    readme_file, image_files, error = get_output_files(id, os.path.join("eval", path))
     if error:
         evals.append(Eval(0.0, 0.0, f"output: {path}", error))
         return
